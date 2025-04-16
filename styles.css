@@ -1,0 +1,356 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: linear-gradient(to right, #C33764  , #1D2671); /* Gradient from pink to orange */
+}
+
+/* Hero Section Gradient */
+.hero-gradient {
+    background: #ffffff4f;
+    color: white;
+    text-align: center;
+    height: 500px;
+  }
+  
+  /* Custom styling for the navbar */
+  .navbar {
+    background-color: transparent;
+    z-index: 1000;
+}
+
+/* Push navbar items to the right */
+header {
+    display: flex;
+    justify-content: flex-end; 
+    align-items: center;/* Aligns all items to the right */
+    padding: 10px 94% ;    
+}
+
+
+/* Style for the navbar list */
+.navbar-nav {
+    display: flex;
+    justify-content: flex-end; /* Ensures items stay on the right */
+    align-items: center;
+    width: 100%;
+    margin-inline: 12%;
+}
+
+/* Style for each navbar item */
+.navbar-nav .nav-item {
+    padding: 5px 0;
+}
+
+/* Style for navbar links */
+.navbar-nav .nav-link {
+    color: #000000;
+    font-size: 19px;
+    text-decoration: underline;
+    background-color: #ffffff;
+    margin-left: 15px;
+    border-radius: 6px;
+    height: 55px;
+    width: 100px;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+  
+  .navbar-nav .nav-link:hover {
+    color: #000000;
+    background-color: turquoise;
+  }
+  
+  /* Contact Section Styling */
+  #contact {
+    background-color: #232323;
+    color: white;
+  }
+  
+  footer {
+    background-color: #232323;
+  }
+  
+  footer p {
+    color: white;
+  }
+  .nav-left{
+    text-decoration: none;
+    white-space: nowrap;
+    margin-left: -325px;
+    font-size: 22px;
+    padding: 11px;
+    background-color: #ffffff;
+    border-radius: 6px;
+    margin-right: auto;
+    color: rgb(0, 0, 0);
+  } 
+
+
+  /*my image*/
+  .navbar-image img {
+    width: 400px; 
+    position: absolute; 
+    left: 240px;
+    top: 1px;
+    vertical-align: middle; 
+  }
+
+  .navbar-nav.ms-auto {
+    margin-left: auto; /* This pushes all items after Home to the right */
+  }
+  #parame{
+    width: 50%;
+    text-align: center;
+    padding-left: 307px;
+    width: 77%;
+  }
+
+/*Animation*/
+/* Animation for Name (Hello, I'm Tanvi Shimpi) */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Style for hero-text (name) */
+.hero-text {
+  opacity: 0;
+  position: relative;  /* Prevents layout shifts */
+  animation: fadeInUp 1s ease-in-out forwards;
+}
+
+#parame {
+  opacity: 0;
+  position: relative;  /* Prevents layout shifts */
+  animation: fadeInUp 1s ease-in-out forwards;
+  font-size: 22px;
+}
+
+/* Typewriter animation for Skills */
+@keyframes typewriter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* Typewriter effect without cursor */
+.typewriter {
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  display: inline-block;  /* Ensures the element respects width */
+  animation: typewriter 3s steps(40, end) forwards;
+  font-size: 28px;
+}
+
+/* see my work button*/
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
+.btn {
+  width: 234px;
+  height: 68px;
+  border: none;
+  outline: none;
+  color: #fff;
+  background: #111;
+  cursor: pointer;
+  position: relative;
+  z-index: 0;
+  border-radius: 10px;
+  top: 18px;
+  font-size: 30px;
+}
+
+.btn:before {
+  content: '';
+  background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 20s linear infinite;
+  opacity: 0;
+  transition: opacity .3s ease-in-out;
+  border-radius: 10px;
+}
+
+.btn:active {
+  color: #ffffff
+}
+
+.btn:active:after {
+  background: transparent;
+}
+
+.btn:hover:before {
+  opacity: 1;
+}
+
+.btn:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #111;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+/* about me */
+.about-box {
+  background-color: #f8f9fa; /* Light background color */
+  border: 1px solid #ddd;    /* Border for the box */
+  border-radius: 6px;         /* Rounded corners */
+  padding: 20px;              /* Padding inside the box */
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 2px, rgba(0, 0, 0, 0.07) 0px 2px 4px, rgba(0, 0, 0, 0.07) 0px 4px 8px, rgba(0, 0, 0, 0.07) 0px 8px 16px, rgba(0, 0, 0, 0.07) 0px 16px 32px, rgba(0, 0, 0, 0.07) 0px 32px 64px;
+  text-align: center;
+}
+.about-box h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+
+.about-box p {
+  font-size: 1.5rem;
+  line-height: 1.6;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+}
+/* Style for Project Cards */
+/* Hover effect to enlarge the card */
+.project-card:hover {
+  transform: scale(1.1);
+  box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover effect for images */
+.project-images img:hover {
+  transform: scale(1.05);  /* Slight zoom effect */
+}
+
+/* General Styling for Project Cards */
+/* Ensure all project cards have the same height */
+.project-card {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: white;
+}
+
+/* Ensuring uniform height for all cards */
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+}
+
+/* Ensure all columns take equal width */
+.col-md-4 {
+  display: flex;
+  width: 33.33%;
+}
+
+/* First Project (Two Images Side by Side) */
+.project-1 .project-images {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.project-1 .project-images img {
+  width: 48%;
+  height: auto;
+  border-radius: 5px;
+}
+
+/* Second & Third Project (Single Centered Image) */
+.project-2 .project-images, .project-3 .project-images {
+  text-align: center;
+}
+
+.project-2 .project-images img, 
+.project-3 .project-images img {
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.button {
+  display: inline-block;
+  padding: 0.75rem 1.25rem;
+  border-radius: 10rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 1rem;
+  letter-spacing: 0.15rem;
+  transition: all 0.3s;
+  position: relative;
+  overflow: hidden;
+  background-color: #007bff; /* Set your preferred color */
+  text-decoration: none;
+  font-weight: bold;
+  z-index: 1;
+}
+
+.button::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #007bff; /* Same as button */
+  border-radius: 10rem;
+  z-index: -2;
+}
+
+.button::before {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background-color: #0056b3; /* Darker shade for hover effect */
+  transition: all 0.3s;
+  border-radius: 10rem;
+  z-index: -1;
+}
+
+.button:hover {
+  color: #fff;
+}
+
+.button:hover::before {
+  width: 100%;
+}
