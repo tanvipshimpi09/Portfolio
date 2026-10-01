@@ -1531,8 +1531,66 @@
         gsap.to('.hero-copy', { y: -90, scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 } }); gsap.to('.visual', { y: 90, scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 } }); gsap.to('.halo', { rotation: 35, scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: 1 } });
         let mx = innerWidth / 2, my = innerHeight / 2, cx = mx, cy = my; addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY }); gsap.ticker.add(() => { cx += (mx - cx) * .12; cy += (my - cy) * .12; $('.cursor').style.left = cx + 'px'; $('.cursor').style.top = cy + 'px' }); $$('a,button,.project,.skill-list span').forEach(el => { el.addEventListener('mouseenter', () => gsap.to('.cursor', { width: 52, height: 52, duration: .2 })); el.addEventListener('mouseleave', () => gsap.to('.cursor', { width: 24, height: 24, duration: .2 })) });
         const canvas = $('#space'), ctx = canvas.getContext('2d'); let W, H, dots = []; function resize() { W = canvas.width = innerWidth * devicePixelRatio; H = canvas.height = innerHeight * devicePixelRatio; canvas.style.width = innerWidth + 'px'; canvas.style.height = innerHeight + 'px'; dots = Array.from({ length: 70 }, () => ({ x: Math.random() * W, y: Math.random() * H, vx: (Math.random() - .5) * .18 * devicePixelRatio, vy: (Math.random() - .5) * .18 * devicePixelRatio, r: Math.random() * 1.4 + .3 })) } resize(); addEventListener('resize', resize); function field() { ctx.clearRect(0, 0, W, H); for (const p of dots) { p.x += p.vx; p.y += p.vy; if (p.x < 0 || p.x > W) p.vx *= -1; if (p.y < 0 || p.y > H) p.vy *= -1; ctx.beginPath(); ctx.arc(p.x, p.y, p.r * devicePixelRatio, 0, Math.PI * 2); ctx.fillStyle = 'rgba(216,255,62,.42)'; ctx.fill() } for (let i = 0; i < dots.length; i++)for (let j = i + 1; j < dots.length; j++) { let a = dots[i], b = dots[j], dx = a.x - b.x, dy = a.y - b.y, d = Math.hypot(dx, dy); if (d < 130 * devicePixelRatio) { ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y); ctx.strokeStyle = `rgba(198,140,255,${.11 * (1 - d / (130 * devicePixelRatio))})`; ctx.stroke() } } requestAnimationFrame(field) } field();
-        const details = [['Sales Performance & Customer Analytics', 'TRANSACTIONAL RETAIL DATA', ['SQL cleaning & transformation', 'Python + Pandas EDA', 'Business KPI analysis', 'Power BI dashboard', 'Business recommendations']], ['Smart Wearable Spine Guard', 'MULTIMODAL SENSOR DATA', ['IMU / flex / pressure streams', 'Python preprocessing', 'Feature engineering', 'Posture classification', 'Real-time analytics dashboard']], ['MediScan AI', 'IMAGE-BASED MACHINE LEARNING', ['Image-based data', 'Preprocessing', 'KNN classification', 'SVM classification', 'Model evaluation', 'Web application integration']]];
-        function openProject(i) { const d = details[i]; $('#modalInner').innerHTML = `<div class="eyebrow">PROJECT 0${i + 1}</div><h2>${d[0]}</h2><div class="modal-label">${d[1]}</div><div class="modal-flow">${d[2].map((x, n) => `<span>0${n + 1}<b>${x}</b></span>`).join('')}</div><p>The sequence above visualizes the workflow documented for this project. It is intentionally presented as a process map so the visitor can understand the project at a glance.</p>`; $('#modal').classList.add('open'); document.body.style.overflow = 'hidden' } function closeProject() { $('#modal').classList.remove('open'); document.body.style.overflow = '' } $('#modal').addEventListener('click', e => { if (e.target.id === 'modal') closeProject() }); addEventListener('keydown', e => { if (e.key === 'Escape') closeProject() });
+        const details = [
+    [
+        'Sales Performance & Customer Analytics',
+        'TRANSACTIONAL RETAIL DATA',
+        [
+            'SQL cleaning & transformation',
+            'Python + Pandas EDA',
+            'Business KPI analysis',
+            'Power BI dashboard',
+            'Business recommendations'
+        ],
+        'The project starts with transactional retail data, which is cleaned and transformed using SQL before being explored with Python and Pandas. The analysis identifies revenue trends, customer behavior, product performance and regional patterns. These findings are then translated into business KPIs and an interactive Power BI dashboard to support decisions around customer retention, product strategy and revenue growth.'
+    ],
+    [
+        'Smart Wearable Spine Guard',
+        'MULTIMODAL SENSOR DATA',
+        [
+            'IMU / flex / pressure streams',
+            'Python preprocessing',
+            'Feature engineering',
+            'Posture classification',
+            'Real-time analytics dashboard'
+        ],
+        'The system collects multimodal sensor data from IMU, flex and pressure sensors while the wearable monitors posture. The raw sensor streams are preprocessed and transformed into useful features before being used to train posture-classification models. The resulting predictions and sensor signals are then presented through a real-time analytics dashboard.'
+    ],
+    [
+        'MediScan AI',
+        'IMAGE-BASED MACHINE LEARNING',
+        [
+            'Image-based data',
+            'Preprocessing',
+            'KNN classification',
+            'SVM classification',
+            'Model evaluation',
+            'Web application integration'
+        ],
+        'The project takes retinal image data and first applies preprocessing to prepare the images for machine learning. KNN and SVM classification models are then used to identify diabetic retinopathy patterns and their performance is evaluated. The complete prediction workflow is integrated into a web application, connecting image input with the classification output.'
+    ]
+];
+
+function openProject(i) {
+    const d = details[i];
+
+    $('#modalInner').innerHTML = `
+        <div class="eyebrow">PROJECT 0${i + 1}</div>
+        <h2>${d[0]}</h2>
+        <div class="modal-label">${d[1]}</div>
+
+        <div class="modal-flow">
+            ${d[2].map((x, n) => `
+                <span>0${n + 1}<b>${x}</b></span>
+            `).join('')}
+        </div>
+
+        <p>${d[3]}</p>
+    `;
+
+    $('#modal').classList.add('open');
+    document.body.style.overflow = 'hidden';
+}
     </script>
 </body>
 
