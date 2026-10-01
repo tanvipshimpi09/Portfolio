@@ -1591,6 +1591,23 @@ function openProject(i) {
     $('#modal').classList.add('open');
     document.body.style.overflow = 'hidden';
 }
+
+function closeProject() {
+    $('#modal').classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+$('#modal').addEventListener('click', e => {
+    if (e.target === $('#modal')) {
+        closeProject();
+    }
+});
+
+addEventListener('keydown', e => {
+    if (e.key === 'Escape') {
+        closeProject();
+    }
+});
     </script>
 </body>
 
